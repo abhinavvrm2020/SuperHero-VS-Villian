@@ -42,6 +42,11 @@ import androidx.compose.ui.unit.dp
 import com.example.superherovsvillian.model.SuperHero
 import com.example.superherovsvillian.ui.theme.SuperHeroVsVillianTheme
 import com.example.superherovsvillian.model.SuperHeroDataSource
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.height
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -76,7 +81,7 @@ fun SuperHeros(
                                     stiffness = StiffnessVeryLow,
                                     dampingRatio = DampingRatioLowBouncy
                                 ),
-                                initialOffsetY = { it * (index + 1) } // staggered entrance
+                                initialOffsetY = { it * (index + 1) }
                             )
                         )
                 )
@@ -90,38 +95,49 @@ fun HeroListItem(
     hero: SuperHero,
     modifier: Modifier = Modifier
 ) {
+    var expanded by remember { mutableStateOf(false) }
+
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        modifier = modifier,
+        modifier = modifier
+            .clickable { expanded = !expanded }
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
                 .sizeIn(minHeight = 72.dp)
         ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(hero.nameRes),
-                    style = MaterialTheme.typography.displaySmall
-                )
-                Text(
-                    text = stringResource(hero.descriptionRes),
-                    style = MaterialTheme.typography.bodyLarge
-                )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(hero.nameRes),
+                        style = MaterialTheme.typography.displaySmall
+                    )
+                    Text(
+                        text = stringResource(hero.descriptionRes),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
+                Spacer(Modifier.width(16.dp))
+                Box(
+                    modifier = Modifier
+                        .size(72.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                ) {
+                    Image(
+                        painter = painterResource(hero.imageRes),
+                        contentDescription = null,
+                        alignment = Alignment.TopCenter,
+                        contentScale = ContentScale.FillWidth
+                    )
+                }
             }
-            Spacer(Modifier.width(16.dp))
-            Box(
-                modifier = Modifier
-                    .size(72.dp)
-                    .clip(RoundedCornerShape(8.dp))
-
-            ) {
-                Image(
-                    painter = painterResource(hero.imageRes),
-                    contentDescription = null,
-                    alignment = Alignment.TopCenter,
-                    contentScale = ContentScale.FillWidth
+            if (expanded) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(hero.expandedDescription),
+                    style = MaterialTheme.typography.bodyLarge
                 )
             }
         }
@@ -135,6 +151,7 @@ fun HeroPreview() {
     val hero = SuperHero(
         R.string.hero1,
         R.string.description1,
+        R.string.expanded_description1,
         R.drawable.android_superhero1
     )
     SuperHeroVsVillianTheme {

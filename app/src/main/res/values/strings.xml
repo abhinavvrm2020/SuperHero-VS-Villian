@@ -1,15 +1,26 @@
 <resources>
     <string name="app_name">SuperHeroVsVillian</string>
-        <string name="hero1">Nick the Night and Day</string>
-        <string name="description1">The Jetpack Hero</string>
-        <string name="hero2">Reality Protector</string>
-        <string name="description2">Understands the absolute truth</string>
-        <string name="hero3">Andre the Giant</string>
-        <string name="description3">Mimics the light and night to blend in</string>
-        <string name="hero4">Benjamin the Brave</string>
-        <string name="description4">Harnesses the power of canary to develop bravely</string>
-        <string name="hero5">Magnificent Maru</string>
-        <string name="description5">Effortlessly glides in to save the day</string>
-        <string name="hero6">Dynamic Yasmine</string>
-        <string name="description6">Ability to shift to any form and energize</string>
+    <string name="hero1">Nick the Night and Day</string>
+    <string name="description1">The Jetpack Hero</string>
+    <string name="expanded_description1">Nick can control the cycle of day and night with his jetpack. He uses this ability to maintain balance and protect the city from threats that emerge in the dark.</string>
+
+    <string name="hero2">Reality Protector</string>
+    <string name="description2">Understands the absolute truth</string>
+    <string name="expanded_description2">Reality Protector has the ability to see through illusions and lies, ensuring that justice is always served with absolute clarity.</string>
+
+    <string name="hero3">Andre the Giant</string>
+    <string name="description3">Mimics the light and night to blend in</string>
+    <string name="expanded_description3">Andre uses his powers to blend into any environment, making him a master of stealth and infiltration. His agility and strength make him a formidable opponent.</string>
+
+    <string name="hero4">Benjamin the Brave</string>
+    <string name="description4">Harnesses the power of canary to develop bravely</string>
+    <string name="expanded_description4">Benjamin draws his strength from the spirit of the canary, allowing him to soar through the skies and face dangers with unwavering courage.</string>
+
+    <string name="hero5">Magnificent Maru</string>
+    <string name="description5">Effortlessly glides in to save the day</string>
+    <string name="expanded_description5">Maru has the ability to glide through the air with ease, providing swift rescue and assistance in critical situations. Her grace and precision are unmatched.</string>
+
+    <string name="hero6">Dynamic Yasmine</string>
+    <string name="description6">Ability to shift to any form and energize</string>
+    <string name="expanded_description6">Yasmine can transform into any shape, allowing her to adapt to any challenge. Her energy manipulation powers give her an edge in both offense and defense.</string>
 </resources>
